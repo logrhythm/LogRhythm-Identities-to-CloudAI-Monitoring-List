@@ -11,6 +11,9 @@
 #
 # Change Log:
 #
+# v1.0 - 2020-10-01 - Tony Massé (tony.masse@logrhythm.com)
+# - Turn Verbose and Debug Off
+#
 # v0.4 - 2020-10-01 - Tony Massé (tony.masse@logrhythm.com)
 # - Prompt user for configuration
 # - Save Config file
@@ -73,8 +76,8 @@ $Version = "v0.4 - 2020-10-01 - Tony Masse (tony.masse@logrhythm.com)"
 # Logging level
 $Logginglevel = @{"INFO" = $true; # Default: True
                   "ERROR" = $true; # Default: True
-                  "VERBOSE" = $true;  # Default: False
-                  "DEBUG" = $true; # Default: False
+                  "VERBOSE" = $false;  # Default: False
+                  "DEBUG" = $false; # Default: False
                  }
 
 
