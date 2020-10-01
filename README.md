@@ -3,6 +3,7 @@
 ## Kick-start:
 
 `.\IndentitiesToCloudAI.ps1 -CreateConfiguration`
+
 `.\IndentitiesToCloudAI.ps1 -GroupToBringIn "CN=My Group Of Users,OU=Groups,DC=my,DC=sexy,DC=domain,DC=com"`
 
 ## Dependencies
@@ -17,21 +18,31 @@ This requires:
 ## Usage examples:
 
 - To create the Configuration file:
+
 `.\IndentitiesToCloudAI.ps1 -CreateConfiguration`
 
 - To get all your existing user Identities that exist in the Active Directory Group *`My Group Of Users`* added to the default *`CloudAI: Monitored Identities`* LogRhythm List
+
 `.\IndentitiesToCloudAI.ps1 -GroupToBringIn "CN=My Group Of Users,OU=Groups,DC=my,DC=sexy,DC=domain,DC=com"`
+
 **This is equivalent to:**
+
 `.\IndentitiesToCloudAI.ps1 -GroupToBringIn "CN=My Group Of Users,OU=Groups,DC=my,DC=sexy,DC=domain,DC=com"  -Action Synchronise`
+
 **-or-**
+
 `.\IndentitiesToCloudAI.ps1 -GroupToBringIn "CN=My Group Of Users,OU=Groups,DC=my,DC=sexy,DC=domain,DC=com"  -LogrhythmListName "CloudAI: Monitored Identities"`
+
 **-or-**
+
 `.\IndentitiesToCloudAI.ps1 -GroupToBringIn "CN=My Group Of Users,OU=Groups,DC=my,DC=sexy,DC=domain,DC=com"  -Action Synchronise -LogrhythmListName "CloudAI: Monitored Identities"`
 
 - To get all **only the new users** (well, their Identities, if they exist) from Group `My Group Of Users` added to the default LogRhythm List (**without removing** any old entry that is not in the Group currently)
+
 `.\IndentitiesToCloudAI.ps1 -GroupToBringIn "CN=My Group Of Users,OU=Groups,DC=my,DC=sexy,DC=domain,DC=com"  -Action AddNewOnesOnly`
 
 - To get **all your existing user Identities that exist in the Active Directory domain** added to the default LogRhythm List
+
 `.\IndentitiesToCloudAI.ps1`
 
 ## Parameters:
