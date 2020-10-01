@@ -1,6 +1,8 @@
 # LogRhythm Identities to CloudAI Monitoring List
 
-A quick tool to help customers with rather large number of users to push to CloudAI. You put them in a Group (in A/D), then use this tool to sync up with the Group in question.A quick tool to help customers with rather large number of users to push to CloudAI. You put them in a Group (in A/D), then use this tool to sync up with the Group in question.
+A quick tool to help customers with rather large number of users to push to CloudAI. 
+
+You put them in a Group (in A/D), then use this tool to sync up with the Group in question.
 
 ## Kick-start:
 
