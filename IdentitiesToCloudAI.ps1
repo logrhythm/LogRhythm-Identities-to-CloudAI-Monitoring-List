@@ -11,6 +11,9 @@
 #
 # Change Log:
 #
+# v1.1 - 2020-10-01 - Tony Massé (tony.masse@logrhythm.com)
+# - Add removal of the LogRhythm.Tools module if already loaded (to help test in-Dev LogRhythm.Tools module)
+#
 # v1.0 - 2020-10-01 - Tony Massé (tony.masse@logrhythm.com)
 # - Turn Verbose and Debug Off
 #
@@ -63,8 +66,29 @@ param (
 # Import required Modules
 # ###########################
 
-Import-Module LogRhythm.Tools
-Import-Module ActiveDirectory
+if ((Get-Module -Name LogRhythm.Tools).Count -gt 0)
+{
+    Remove-Module -Name LogRhythm.Tools
+}
+
+if ((Get-Module -Name LogRhythm.Tools -ListAvailable).Count -gt 0)
+{
+    Import-Module LogRhythm.Tools
+}
+else
+{
+    Write-Warning 'Could not load module ''LogRhythm.Tools''. Exiting.'
+    exit 20
+}
+
+if ((Get-Module -Name ActiveDirectory -ListAvailable).Count -gt 0)
+{
+    Import-Module ActiveDirectory
+}
+else
+{
+    Write-Warning 'Could not load module ''ActiveDirectory''. Exiting.' 
+}
 
 # ###########################
 # Declaring all the variables
@@ -616,7 +640,10 @@ switch ($Action.ToUpper()) {
         $IdentitiesToBringIn | ForEach-Object {
             $IdentityIDList.Add($_.identityID) > $null
         }
+        $SyncOutput = Sync-LrListItems -Name $LogrhythmListName -Value $IdentityIDList -ItemType "Identity" 6>&1
+        Log-Info $SyncOutput
 
+<#
         try
         {
             Write-Host 'Removing items: ' -NoNewline
@@ -654,7 +681,7 @@ switch ($Action.ToUpper()) {
         }
 
         Write-Host ""
-
+#>
         break
     }
     default {
