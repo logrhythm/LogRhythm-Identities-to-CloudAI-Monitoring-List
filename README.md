@@ -8,7 +8,7 @@ You put them in a Group (in A/D), then use this tool to sync up with the Group i
 
 `.\IndentitiesToCloudAI.ps1 -CreateConfiguration`
 
-`.\IndentitiesToCloudAI.ps1 -GroupToBringIn "CN=My Group Of Users,OU=Groups,DC=my,DC=sexy,DC=domain,DC=com"`
+`.\IndentitiesToCloudAI.ps1 -GroupToBringIn "CN=My Group Of Users,OU=Groups,DC=my,DC=sexy,DC=domain,DC=eu"`
 
 ## Dependencies
 
